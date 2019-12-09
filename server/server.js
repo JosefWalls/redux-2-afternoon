@@ -3,8 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const user = require('./userCtrl');
 const budget = require('./budgetCtrl');
+const { SESSION_SECRET } = process.env;
 
-const { SERVER_PORT, SESSION_SECRET } = process.env;
 
 const app = express();
 app.use(express.json());
@@ -35,6 +35,6 @@ app.get('/api/budget-data', budget.budgetData)
 app.post('/api/budget-data/purchase', budget.purchase);
 app.delete('/api/budget-data/purchase/:id', budget.remove)
 
-app.listen(SERVER_PORT, () => {
-  console.log(`Server running on port ${SERVER_PORT}`)
+app.listen(4000, () => {
+  console.log(`Server running on port 4000`)
 })
